@@ -83,15 +83,22 @@ export default function OrderPage() {
       return
     }
 
+    const orderNumber = Math.floor(100000000000 + Math.random() * 900000000000)
+    const now = new Date()
+    const dateStr = now.toLocaleDateString('ru-RU', { day: '2-digit', month: '2-digit', year: 'numeric' })
+    const timeStr = now.toLocaleTimeString('ru-RU', { hour: '2-digit', minute: '2-digit' })
+
     const text = [
-      `*Новый заказ с сайта AMANAT Logistic*`,
+      `№ ${orderNumber}`,
+      `${dateStr}, ${timeStr}`,
       ``,
-      `👤 *ФИО:* ${form.fullName}`,
-      `📞 *Телефон:* ${form.phone}`,
-      `📦 *Материал / услуга:* ${form.material}`,
-      `⚖️ *Количество:* ${form.quantity} ${form.unit}`,
-      `📍 *Адрес доставки:* ${form.address}`,
-      form.comment ? `💬 *Комментарий:* ${form.comment}` : '',
+      `Имя: ${form.fullName}`,
+      `Телефон: ${form.phone}`,
+      ``,
+      `Материал / услуга: ${form.material}`,
+      `Количество: ${form.quantity} ${form.unit}`,
+      `Адрес доставки: ${form.address}`,
+      form.comment ? `Комментарий: ${form.comment}` : '',
     ]
       .filter(Boolean)
       .join('\n')
@@ -164,7 +171,7 @@ export default function OrderPage() {
                         </label>
                         <input
                           type="text"
-                          placeholder="Иванов Иван Иванович"
+                          placeholder="ФИО или название компании"
                           value={form.fullName}
                           onChange={set('fullName')}
                           className={inputClass('fullName')}

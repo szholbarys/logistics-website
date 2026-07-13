@@ -101,17 +101,6 @@ export function Footer() {
             >
               Оформить заказ
             </Link>
-            <div className="mt-6">
-              <a
-                href="https://www.sts-dostavka.kz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
-              >
-                <ExternalLink className="w-3 h-3" />
-                sts-dostavka.kz
-              </a>
-            </div>
           </div>
         </div>
 

@@ -25,14 +25,7 @@ const contacts = [
     value: 'Написать в WhatsApp',
     href: 'https://wa.me/77077373333',
     sub: 'Быстрый ответ',
-  },
-  {
-    icon: Globe,
-    label: 'Сайт',
-    value: 'www.sts-dostavka.kz',
-    href: 'https://www.sts-dostavka.kz',
-    sub: 'Официальный сайт',
-  },
+  }
 ]
 
 const infoCards = [

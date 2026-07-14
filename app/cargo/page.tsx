@@ -70,16 +70,17 @@ const advantages = [
 ]
 
 const partners = [
-  'BI Group',
-  'Базис-А',
-  'Алматы Курылыс',
-  'КазСтройСервис',
-  'ГлавСтрой KZ',
-  'Нурстрой',
-  'Строй Альянс',
-  'МегаБилд',
-  'КазИнфраСтрой',
-  'Тимур Строй',
+  { name: 'ARMTEK', logo: '/logos/armtek.jpeg' },
+  { name: 'BI Group', logo: '/logos/bi-group.png' },
+  { name: 'Jusan Bank', logo: '/logos/jusan-bank.png' },
+  { name: 'NKB Group', logo: '/logos/nkb-group.png' },
+  { name: 'KOMATSU', logo: '/logos/komatsu.jpg' },
+  { name: 'CBC', logo: '/logos/cbc.png' },
+  { name: 'SEVALO', logo: '/logos/sevalo.png' },
+  { name: 'Baikonur Machinery Group', logo: '/logos/baikonur.jpeg' },
+  { name: 'Eurasian Machinery', logo: '/logos/eurasian-machinery.png' },
+  { name: 'Borusan CAT', logo: '/logos/borusan-cat.jpg' },
+  { name: 'HINO', logo: '/logos/hino.png' },
 ]
 
 const specs = [
@@ -326,18 +327,22 @@ export default function CargoPage() {
 
           <div className="flex overflow-hidden">
             <motion.div
-              className="flex shrink-0 gap-8 items-center"
+              className="flex shrink-0 gap-6 items-center"
               animate={{ x: ['0%', '-50%'] }}
-              transition={{ duration: 22, ease: 'linear', repeat: Infinity }}
+              transition={{ duration: 28, ease: 'linear', repeat: Infinity }}
             >
               {[...partners, ...partners].map((partner, i) => (
                 <div
                   key={i}
-                  className="shrink-0 flex items-center justify-center bg-card border border-border rounded-xl px-8 py-4 h-16 min-w-[160px]"
-                >
-                  <span className="text-muted-foreground font-semibold text-sm tracking-wide whitespace-nowrap">
-                    {partner}
-                  </span>
+                  className="shrink-0 flex items-center justify-center bg-white border border-white/10 rounded-xl px-6 py-3 h-20 min-w-[180px]"                >
+                  <div className="relative w-full h-10">
+                    <Image
+                      src={partner.logo}
+                      alt={partner.name}
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
                 </div>
               ))}
             </motion.div>

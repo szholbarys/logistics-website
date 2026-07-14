@@ -7,7 +7,18 @@ import { FadeIn, StaggerChildren, StaggerItem } from '@/components/fade-in'
 import { CtaSection } from '@/components/home/cta-section'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
-import { CheckCircle, Weight, Gauge, Wrench, Users } from 'lucide-react'
+import { CheckCircle, Weight, Gauge, Wrench, Users, X, ChevronLeft, ChevronRight } from 'lucide-react'
+
+const galleryImages = [
+  { src: '/images/1.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/2.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/3.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/4.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/5.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/6.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/7.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/8.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/9.jpeg', alt: 'Автопарк AMANAT' },]
 
 const trucks = [
   {
@@ -98,6 +109,12 @@ const serviceFeatures = [
 export default function FleetPage() {
   const [activeId, setActiveId] = useState('howo')
   const activeTruck = trucks.find((t) => t.id === activeId)!
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null)
+
+  function openLightbox(i: number) { setLightboxIndex(i) }
+  function closeLightbox() { setLightboxIndex(null) }
+  function prevImage() { setLightboxIndex((prev) => prev !== null ? (prev - 1 + galleryImages.length) % galleryImages.length : null) }
+  function nextImage() { setLightboxIndex((prev) => prev !== null ? (prev + 1) % galleryImages.length : null) }
 
   return (
     <main>
@@ -247,6 +264,91 @@ export default function FleetPage() {
           </div>
         </div>
       </section>
+
+      {/* Photo gallery */}
+      <section className="pb-24 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeIn className="mb-10">
+            <h2 className="text-2xl font-black text-foreground">Фотогалерея</h2>
+            <p className="text-muted-foreground text-sm mt-1">Нажмите на фото для просмотра</p>
+          </FadeIn>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 gap-3">
+            {galleryImages.map((img, i) => (
+              <button
+                key={i}
+                onClick={() => openLightbox(i)}
+                className="group relative aspect-video rounded-xl overflow-hidden border border-border hover:border-primary/50 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+              >
+                <Image
+                  src={img.src}
+                  alt={img.alt}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Lightbox */}
+      <AnimatePresence>
+        {lightboxIndex !== null && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-sm"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={closeLightbox}
+          >
+            <button
+              onClick={(e) => { e.stopPropagation(); prevImage() }}
+              className="absolute left-4 sm:left-8 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              aria-label="Предыдущее фото"
+            >
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+
+            <motion.div
+              key={lightboxIndex}
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.92 }}
+              transition={{ duration: 0.25 }}
+              className="relative w-[90vw] max-w-4xl aspect-video"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <Image
+                src={galleryImages[lightboxIndex].src}
+                alt={galleryImages[lightboxIndex].alt}
+                fill
+                className="object-contain rounded-xl"
+              />
+            </motion.div>
+
+            <button
+              onClick={(e) => { e.stopPropagation(); nextImage() }}
+              className="absolute right-4 sm:right-8 z-10 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              aria-label="Следующее фото"
+            >
+              <ChevronRight className="w-6 h-6" />
+            </button>
+
+            <button
+              onClick={closeLightbox}
+              className="absolute top-4 right-4 z-10 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors"
+              aria-label="Закрыть"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <p className="absolute bottom-4 text-white/50 text-sm">
+              {lightboxIndex + 1} / {galleryImages.length}
+            </p>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Service quality */}
       <section className="py-24 bg-[oklch(0.09_0.01_250)]">

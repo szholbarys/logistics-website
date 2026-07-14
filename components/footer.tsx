@@ -3,7 +3,8 @@ import { Phone, MapPin, Truck, ExternalLink } from 'lucide-react'
 
 const navLinks = [
   { href: '/', label: 'Главная' },
-  { href: '/services', label: 'Услуги' },
+  { href: '/services', label: 'Сыпучие материалы' },
+  { href: '/cargo', label: 'Грузоперевозка' },
   { href: '/fleet', label: 'Автопарк' },
   { href: '/contacts', label: 'Контакты' },
   { href: '/order', label: 'Оформить заказ' },

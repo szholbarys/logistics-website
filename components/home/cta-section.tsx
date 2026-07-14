@@ -22,10 +22,17 @@ export function CtaSection() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
-              href="/order"
+              href="/order?tab=service"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-base hover:bg-[oklch(0.58_0.2_45)] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
             >
-              Оформить заказ
+              Сыпучие материалы
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+            <Link
+              href="/order?tab=cargo"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 text-foreground font-semibold text-base hover:border-primary/50 hover:bg-white/5 transition-all"
+            >
+              Грузоперевозка
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a

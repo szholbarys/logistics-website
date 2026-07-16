@@ -82,15 +82,6 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Phone */}
-          <a
-            href="tel:+77077373333"
-            className="hidden lg:flex items-center gap-2 text-sm text-foreground/70 hover:text-primary transition-colors"
-          >
-            <Phone className="w-4 h-4" />
-            <span className="font-medium">+7 707 737 33 33</span>
-          </a>
-
           {/* Mobile toggle */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -132,13 +123,6 @@ export function Navbar() {
                   </Link>
                 )
               })}
-              <a
-                href="tel:+77077373333"
-                className="flex items-center gap-2 px-4 py-3 text-sm text-foreground/70 hover:text-primary transition-colors"
-              >
-                <Phone className="w-4 h-4" />
-                +7 707 737 33 33
-              </a>
             </nav>
           </motion.div>
         )}

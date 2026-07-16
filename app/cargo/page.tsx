@@ -72,7 +72,6 @@ const advantages = [
 const partners = [
   { name: 'ARMTEK', logo: '/logos/armtek.jpeg' },
   { name: 'BI Group', logo: '/logos/bi-group.png' },
-  { name: 'Jusan Bank', logo: '/logos/jusan-bank.png' },
   { name: 'NKB Group', logo: '/logos/nkb-group.png' },
   { name: 'KOMATSU', logo: '/logos/komatsu.jpg' },
   { name: 'CBC', logo: '/logos/cbc.png' },
@@ -128,7 +127,7 @@ export default function CargoPage() {
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed mb-8">
               Перевозим строительные, промышленные и коммерческие грузы собственным автопарком.
-              Грузоподъёмность от 5 до 200 тонн. Минимальный заказ — 5 тонн.
+              Грузоподъёмность от 5 до 200 тонн.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link
@@ -300,7 +299,6 @@ export default function CargoPage() {
                 <div className="absolute bottom-6 left-6 right-6">
                   <div className="bg-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-4">
                     <p className="text-foreground font-bold text-sm">Собственный автопарк</p>
-                    <p className="text-muted-foreground text-xs mt-0.5">HOWO · Mercedes · Shacman — от 5 до 200 тонн</p>
                   </div>
                 </div>
               </div>

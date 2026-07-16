@@ -20,7 +20,7 @@ const bulkMaterialOptions = [
   'Песок карьерный',
   'Гравий',
   'ПГС (песчано-гравийная смесь)',
-  'ПЩС «Сникерс»',
+  'ГЩС',
   'Отсев щебня',
   'Известняк',
   'Нерудная горная масса',
@@ -108,7 +108,7 @@ function validateCargo(form: CargoForm): CargoErrors {
   if (!form.weight.trim()) e.weight = 'Укажите вес груза'
   else if (parseFloat(form.weight) < 5) e.weight = 'Минимальный заказ — 5 тонн'
   if (!form.from.trim()) e.from = 'Укажите адрес погрузки'
-  if (!form.to.trim()) e.to = 'Укажите адрес доставки'
+  if (!form.to.trim()) e.to = 'Укажите адрес выгрузки'
   return e
 }
 
@@ -202,8 +202,8 @@ function Sidebar() {
         <h3 className="font-black text-foreground mb-4">Или позвоните нам</h3>
         <div className="flex flex-col gap-3">
           {[
-            { href: 'tel:+77077373333', number: '+7 707 737 33 33', label: 'Основной' },
-            { href: 'tel:+77752869576', number: '+7 775 286 95 76', label: 'Дополнительный' },
+            { href: 'tel:+77077373333', number: '+7 707 737 33 33', label: 'Логистика' },
+            { href: 'tel:+77752869576', number: '+7 775 286 95 76', label: 'Сыпучие материалы' },
           ].map((c) => (
             <a key={c.href} href={c.href} className="flex items-center gap-3 group">
               <div className="w-9 h-9 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
@@ -435,7 +435,7 @@ function CargoFormSection({ onSuccess }: { onSuccess: () => void }) {
       `Тип груза: ${form.cargoType}`,
       `Вес: ${form.weight} тонн`,
       `Адрес погрузки: ${form.from}`,
-      `Адрес доставки: ${form.to}`,
+      `Адрес выгрузки: ${form.to}`,
       form.comment ? `Комментарий: ${form.comment}` : '',
     ].filter(Boolean).join('\n')
 
@@ -519,7 +519,7 @@ function CargoFormSection({ onSuccess }: { onSuccess: () => void }) {
         </div>
         <div>
           <label className="block text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-2">
-            Адрес доставки <span className="text-primary">*</span>
+            Адрес выгрузки <span className="text-primary">*</span>
           </label>
           <input type="text" placeholder="г. Алматы, пр. Абая, 100" value={form.to} onChange={set('to')} className={inputCls(!!errors.to)} />
           {errors.to && <p className="text-destructive text-xs mt-1">{errors.to}</p>}

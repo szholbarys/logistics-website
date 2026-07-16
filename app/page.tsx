@@ -1,9 +1,9 @@
-import { Navbar } from '@/components/navbar'
-import { Footer } from '@/components/footer'
-import { HeroSection } from '@/components/home/hero-section'
-import { StatsSection } from '@/components/home/stats-section'
-import { MaterialsSection } from '@/components/home/materials-section'
-import { CtaSection } from '@/components/home/cta-section'
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
+import { HeroSection } from "@/components/home/hero-section";
+import { StatsSection } from "@/components/home/stats-section";
+import { ServicesSection } from "@/components/home/services-section";
+import { CtaSection } from "@/components/home/cta-section";
 
 export default function HomePage() {
   return (
@@ -11,9 +11,9 @@ export default function HomePage() {
       <Navbar />
       <HeroSection />
       <StatsSection />
-      <MaterialsSection />
+      <ServicesSection />
       <CtaSection />
       <Footer />
     </main>
-  )
+  );
 }

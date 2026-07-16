@@ -1,18 +1,53 @@
 'use client'
 
-import { motion } from 'framer-motion'
+import { useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ArrowRight, Phone } from 'lucide-react'
 
+const heroContent = {
+  bulk: {
+    badge: 'Доставка материалов',
+    title: ['Доставка', 'сыпучих', 'материалов'],
+    description: 'Профессиональная доставка инертных материалов и вывоз строительного мусора. Автопарк HOWO, Mercedes, Shacman грузоподъёмностью 25–40 тонн. Доставка по всей Алматы и региону.',
+    cta1: 'Оформить заказ',
+    cta1Link: '/order',
+    cta2Phone: '+7 775 286 95 76',
+    stats: [
+      { value: '10+', label: 'Лет на рынке' },
+      { value: '500+', label: 'Клиентов' },
+      { value: '25–40т', label: 'Грузоподъёмность' },
+      { value: '24/7', label: 'Режим работы' },
+    ],
+  },
+  cargo: {
+    badge: 'Грузоперевозки',
+    title: ['Грузоперевозки', 'по Алматы', 'и региону'],
+    description: 'Перевозим строительные, промышленные и коммерческие грузы собственным автопарком. Специальные разрешения для негабаритных грузов. Доставка по всей Алматы и региону.',
+    cta1: 'Оформить заявку',
+    cta1Link: '/order?tab=cargo',
+    cta2Phone: '+7 707 737 33 33',
+    stats: [
+      { value: '200т', label: 'Макс. грузоподъемность' },
+      { value: '45', label: 'Единиц транспорта' },
+      { value: '5–200т', label: 'Диапазон заказов' },
+      { value: '24/7', label: 'Режим работы' },
+    ],
+  },
+}
+
 export function HeroSection() {
+  const [active, setActive] = useState<'bulk' | 'cargo'>('bulk')
+  const content = heroContent[active]
+
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-truck.png"
-          alt="Грузовой автомобиль AMANAT Logistic"
+          alt="AMANAT Logistic"
           fill
           className="object-cover object-center"
           priority
@@ -34,80 +69,103 @@ export function HeroSection() {
         />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-16 w-full">
+        {/* Service tabs */}
+        <div className="flex gap-3 mb-8">
+          <button
+            onClick={() => setActive('bulk')}
+            className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 ${
+              active === 'bulk'
+                ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
+                : 'bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40'
+            }`}
+          >
+            Сыпучие материалы
+          </button>
+          <button
+            onClick={() => setActive('cargo')}
+            className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 ${
+              active === 'cargo'
+                ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
+                : 'bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40'
+            }`}
+          >
+            Грузоперевозка
+          </button>
+        </div>
+
         <div className="max-w-3xl">
           {/* Badge */}
           <motion.div
+            key={`badge-${active}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-primary text-xs font-semibold tracking-wider uppercase mb-6"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Алматы и регион — 24/7
+            {content.badge} — 24/7
           </motion.div>
 
           {/* Headline */}
           <motion.h1
+            key={`headline-${active}`}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-black text-foreground leading-none tracking-tight mb-6 text-balance"
           >
-            Доставка{' '}
-            <span className="text-primary">сыпучих</span>
+            {content.title[0]}{' '}
+            <span className="text-primary">{content.title[1]}</span>
             <br />
-            материалов
+            {content.title[2]}
           </motion.h1>
 
           {/* Subheadline */}
           <motion.p
+            key={`subheadline-${active}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-lg sm:text-xl text-foreground/70 leading-relaxed mb-10 max-w-xl"
           >
-            Профессиональная доставка инертных материалов и вывоз строительного мусора.
-            Автопарк HOWO, Mercedes, Shacman грузоподъёмностью 20–40 тонн.
+            {content.description}
           </motion.p>
 
           {/* CTAs */}
           <motion.div
+            key={`ctas-${active}`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             className="flex flex-col sm:flex-row gap-4"
           >
             <Link
-              href="/order"
+              href={content.cta1Link}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full bg-primary text-primary-foreground font-bold text-base hover:bg-[oklch(0.58_0.2_45)] transition-all hover:scale-105 active:scale-95 shadow-lg shadow-primary/20"
             >
-              Оформить заказ
+              {content.cta1}
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href="tel:+77077373333"
+              href={`tel:${content.cta2Phone.replace(/\s+/g, '')}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-foreground font-semibold text-base hover:border-primary/50 hover:bg-white/10 transition-all"
             >
               <Phone className="w-5 h-5 text-primary" />
-              +7 707 737 33 33
+              {content.cta2Phone}
             </a>
           </motion.div>
         </div>
 
         {/* Stats row */}
         <motion.div
+          key={`stats-${active}`}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.5 }}
           className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10"
         >
-          {[
-            { value: '10+', label: 'Лет на рынке' },
-            { value: '500+', label: 'Клиентов' },
-            { value: '20–40т', label: 'Грузоподъёмность' },
-            { value: '24/7', label: 'Режим работы' },
-          ].map((stat) => (
+          {content.stats.map((stat) => (
             <div key={stat.label} className="bg-[oklch(0.13_0.01_250)/80] backdrop-blur-sm px-6 py-5">
               <div className="text-3xl font-black text-primary">{stat.value}</div>
               <div className="text-sm text-foreground/60 mt-1">{stat.label}</div>

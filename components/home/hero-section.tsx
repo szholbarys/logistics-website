@@ -59,7 +59,7 @@ export function HeroSection() {
       {/* Mobile background */}
       <div className="absolute inset-0 z-0 md:hidden">
         <Image
-          src="/images/main-image-mobile.JPG"
+          src="/images/main-image-mobile.png"
           alt="AMANAT Logistic"
           fill
           className="object-cover object-center"

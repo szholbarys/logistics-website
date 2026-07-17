@@ -48,7 +48,7 @@ const deliveryServices = [
   },
   {
     id: 'limestone',
-    name: 'Балас',
+    name: 'Балласт',
     image: '/images/hero-truck.png',
     description:
       'Скальные грунты, известняк, нерудная горная масса — для планировки, отсыпки и строительства.',

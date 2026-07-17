@@ -23,8 +23,8 @@ const heroContent = {
   },
   cargo: {
     badge: 'Грузоперевозки',
-    title: ['Грузоперевозки', 'по Алматы', 'и региону'],
-    description: 'Перевозим строительные, промышленные и коммерческие грузы собственным автопарком. Специальные разрешения для негабаритных грузов. Доставка по всей Алматы и региону.',
+    title: ['Грузоперевозки', 'по Казахстану', 'и по СНГ'],
+    description: 'Перевозим строительные, промышленные и коммерческие грузы собственным автопарком. Специальные разрешения для негабаритных грузов.',
     cta1: 'Оформить заявку',
     cta1Link: '/order?tab=cargo',
     cta2Phone: '+7 707 737 33 33',
@@ -46,7 +46,7 @@ export function HeroSection() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/images/hero-truck.png"
+          src="/images/main-image.png"
           alt="AMANAT Logistic"
           fill
           className="object-cover object-center"
@@ -90,7 +90,7 @@ export function HeroSection() {
                 : 'bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40'
             }`}
           >
-            Грузоперевозка
+            Грузоперевозка и логистика
           </button>
         </div>
 

@@ -39,27 +39,27 @@ const cargo = [
     name: "Строительные грузы",
     description:
       "Кирпич, блоки, металлоконструкции, трубы, арматура, плиты перекрытий.",
-    image: "/images/truck-howo.png",
+    image: "/images/stroyka.png",
     tag: "",
   },
   {
     name: "Промышленное оборудование",
     description: "Станки, агрегаты и технические конструкции любой сложности.",
-    image: "/images/truck-mercedes.png",
+    image: "/images/promyshlennoe.jpg",
     tag: "",
   },
   {
     name: "Негабаритные грузы",
     description:
       "Крупногабаритные и тяжеловесные грузы с оформлением разрешений.",
-    image: "/images/truck-shacman.png",
+    image: "/images/negoboritnye.jpg",
     tag: "Тралы",
   },
   {
     name: "Коммерческие грузы",
     description:
       "Товары, торговое оборудование и продукция между городами и регионами.",
-    image: "/images/cargo-transport.png",
+    image: "/images/commercial.jpg",
     tag: "",
   },
 ];
@@ -143,8 +143,8 @@ export function ServicesSection() {
             Два направления перевозок
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mt-4 max-w-2xl mx-auto">
-            Доставка сыпучих материалов и грузоперевозка собственным автопарком
-            грузоподъёмностью 20–200 тонн.
+            Доставка сыпучих материалов и грузоперевозки собственным автопарком
+            грузоподъёмностью 1–200 тонн.
           </p>
         </FadeIn>
 
@@ -158,7 +158,7 @@ export function ServicesSection() {
           />
           <ServiceGroup
             eyebrow="Что мы перевозим"
-            title="Грузоперевозки по Алматы и региону"
+            title="Грузоперевозки по Казахстану и по СНГ"
             linkHref="/cargo"
             linkLabel="О грузоперевозках"
             items={cargo}

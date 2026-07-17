@@ -135,11 +135,11 @@ export default function CargoPage() {
               AMANAT Logistic
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6 text-balance max-w-3xl">
-              Грузоперевозки по Алматы и региону
+              Грузоперевозки по Казахстану и по СНГ
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed mb-8">
               Перевозим строительные, промышленные и коммерческие грузы
-              собственным автопарком. Грузоподъёмность от 5 до 200 тонн.
+              собственным автопарком. Грузоподъёмность от 1 до 200 тонн.
             </p>
             <div className="flex flex-wrap gap-4">
               <Link

@@ -10,7 +10,7 @@ const deliveryServices = [
   {
     id: 'crushed-stone',
     name: 'Щебень',
-    image: '/images/crushed-stone.png',
+    image: '/images/sheben.webp',
     description:
       'Доставляем щебень всех фракций для строительных, дорожных и ландшафтных работ по Алматы и региону.',
     features: [

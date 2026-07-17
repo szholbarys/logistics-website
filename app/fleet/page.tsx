@@ -18,7 +18,14 @@ const galleryImages = [
   { src: '/images/6.jpeg', alt: 'Автопарк AMANAT' },
   { src: '/images/7.jpeg', alt: 'Автопарк AMANAT' },
   { src: '/images/8.jpeg', alt: 'Автопарк AMANAT' },
-  { src: '/images/9.jpeg', alt: 'Автопарк AMANAT' },]
+  { src: '/images/9.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/10.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/11.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/12.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/13.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/14.jpeg', alt: 'Автопарк AMANAT' },
+  { src: '/images/15.jpeg', alt: 'Автопарк AMANAT' },
+]
 
 const trucks = [
   {

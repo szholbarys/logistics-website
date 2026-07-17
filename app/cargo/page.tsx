@@ -23,7 +23,7 @@ const cargoTypes = [
   {
     name: "Строительные грузы",
     description:
-      "Перевозка строительных материалов: кирпич, блоки, металлоконструкции, трубы, арматура, плиты перекрытий.",
+      "Перевозка строительных материалов: блоки, металлоконструкции, трубы, арматура, плиты перекрытий.",
     icon: Package,
   },
   {
@@ -41,7 +41,7 @@ const cargoTypes = [
   {
     name: "Коммерческие грузы",
     description:
-      "Доставка товаров, торгового оборудования, продукции производства между городами и регионами.",
+      "Доставка товаров, ТНП, торгового оборудования, продукции производства между городами и регионами.",
     icon: MapPin,
   },
 ];
@@ -65,7 +65,7 @@ const advantages = [
   {
     icon: Truck,
     title: "Собственный парк",
-    text: "HOWO, Mercedes, Shacman — грузоподъёмность от 5 до 200 тонн. Никаких посредников.",
+    text: "HOWO, Mercedes, Shacman — грузоподъёмность от 1 до 200 тонн. Никаких посредников.",
   },
 ];
 
@@ -123,7 +123,7 @@ export default function CargoPage() {
             src="/images/cargo-transport.png"
             alt="Грузоперевозки Amanat Logistic"
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-80"
             priority
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[oklch(0.09_0.01_250)] via-[oklch(0.09_0.01_250)/60] to-transparent" />
@@ -135,7 +135,7 @@ export default function CargoPage() {
               AMANAT Logistic
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mb-6 text-balance max-w-3xl">
-              Грузоперевозки по Казахстану и по СНГ
+              Грузоперевозки по Казахстану и СНГ
             </h1>
             <p className="text-muted-foreground text-lg max-w-2xl leading-relaxed mb-8">
               Перевозим строительные, промышленные и коммерческие грузы
@@ -337,14 +337,14 @@ export default function CargoPage() {
             <FadeIn direction="left">
               <div className="relative aspect-video rounded-2xl overflow-hidden border border-border">
                 <Image
-                  src="/images/fleet.png"
+                  src="/images/fleet.jpeg"
                   alt="Автопарк Amanat Logistic"
                   fill
                   className="object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
                 <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-card/80 backdrop-blur-sm border border-white/10 rounded-xl p-4">
+                  <div className="backdrop-blur-sm border border-white/10 rounded-xl p-4">
                     <p className="text-foreground font-bold text-sm">
                       Собственный автопарк
                     </p>

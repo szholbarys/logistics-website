@@ -20,6 +20,7 @@ const WHATSAPP_NUMBER_CARGO = "77077373333";
 // ─── Bulk materials ───────────────────────────────────────────────
 const bulkMaterialOptions = [
   "Щебень (фракция 5–10 мм)",
+  "Щебень (фракция 5–20 мм)",
   "Щебень (фракция 10–20 мм)",
   "Щебень (фракция 20–40 мм)",
   "Щебень (фракция 40–70 мм)",
@@ -42,6 +43,7 @@ const cargoTypeOptions = [
   "Строительные материалы",
   "Промышленное оборудование",
   "Негабаритный груз",
+  "Спецтехники",
   "Коммерческие товары",
   "Металлоконструкции",
   "Сыпучие грузы (насыпью)",
@@ -113,7 +115,7 @@ function validateCargo(form: CargoForm): CargoErrors {
   if (!form.phone.trim()) e.phone = "Укажите номер телефона";
   if (!form.cargoType) e.cargoType = "Выберите тип груза";
   if (!form.weight.trim()) e.weight = "Укажите вес груза";
-  else if (parseFloat(form.weight) < 5) e.weight = "Минимальный заказ — 5 тонн";
+  else if (parseFloat(form.weight) < 1) e.weight = "Минимальный заказ — 1 тонна";
   if (!form.from.trim()) e.from = "Укажите адрес погрузки";
   if (!form.to.trim()) e.to = "Укажите адрес выгрузки";
   return e;
@@ -628,8 +630,8 @@ function CargoFormSection({ onSuccess }: { onSuccess: () => void }) {
         <div className="flex gap-2 items-center">
           <input
             type="number"
-            min="5"
-            placeholder="Минимум 5 тонн"
+            min="1"
+            placeholder="Минимум 1 тонна"
             value={form.weight}
             onChange={set("weight")}
             className={`flex-1 ${inputCls(!!errors.weight)}`}
@@ -642,7 +644,7 @@ function CargoFormSection({ onSuccess }: { onSuccess: () => void }) {
           <p className="text-destructive text-xs mt-1">{errors.weight}</p>
         )}
         <p className="text-muted-foreground text-xs mt-1.5">
-          Минимальный заказ — 5 тонн
+          Минимальный заказ — 1 тонна
         </p>
       </div>
 

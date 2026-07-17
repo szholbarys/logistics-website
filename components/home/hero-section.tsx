@@ -1,50 +1,52 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import Link from 'next/link'
-import Image from 'next/image'
-import { ArrowRight, Phone } from 'lucide-react'
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, Phone } from "lucide-react";
 
 const heroContent = {
   bulk: {
-    badge: 'Доставка материалов',
-    title: ['Доставка', 'сыпучих', 'материалов'],
-    description: 'Профессиональная доставка инертных материалов и вывоз строительного мусора. Автопарк HOWO, Mercedes, Shacman грузоподъёмностью 25–40 тонн. Доставка по всей Алматы и региону.',
-    cta1: 'Оформить заказ',
-    cta1Link: '/order',
-    cta2Phone: '+7 775 286 95 76',
+    badge: "Доставка материалов",
+    title: ["Доставка", "сыпучих", "материалов"],
+    description:
+      "Профессиональная доставка инертных материалов и вывоз строительного мусора. Автопарк HOWO, Mercedes, Shacman грузоподъёмностью 25–40 тонн. Доставка по всей Алматы и региону.",
+    cta1: "Оформить заказ",
+    cta1Link: "/order",
+    cta2Phone: "+7 775 286 95 76",
     stats: [
-      { value: '10+', label: 'Лет на рынке' },
-      { value: '500+', label: 'Клиентов' },
-      { value: '25–40т', label: 'Грузоподъёмность' },
-      { value: '24/7', label: 'Режим работы' },
+      { value: "10+", label: "Лет на рынке" },
+      { value: "500+", label: "Клиентов" },
+      { value: "25–40т", label: "Грузоподъёмность" },
+      { value: "24/7", label: "Режим работы" },
     ],
   },
   cargo: {
-    badge: 'Грузоперевозки',
-    title: ['Грузоперевозки', 'по Казахстану', 'и по СНГ'],
-    description: 'Перевозим строительные, промышленные и коммерческие грузы собственным автопарком. Специальные разрешения для негабаритных грузов.',
-    cta1: 'Оформить заявку',
-    cta1Link: '/order?tab=cargo',
-    cta2Phone: '+7 707 737 33 33',
+    badge: "Грузоперевозки",
+    title: ["Грузоперевозки", "по Казахстану", "и СНГ"],
+    description:
+      "Перевозим строительные, промышленные и коммерческие грузы собственным автопарком. Специальные разрешения для негабаритных грузов.",
+    cta1: "Оформить заявку",
+    cta1Link: "/order?tab=cargo",
+    cta2Phone: "+7 707 737 33 33",
     stats: [
-      { value: '200т', label: 'Макс. грузоподъемность' },
-      { value: '45', label: 'Единиц транспорта' },
-      { value: '1–200т', label: 'Диапазон заказов' },
-      { value: '24/7', label: 'Режим работы' },
+      { value: "200т", label: "Макс. грузоподъемность" },
+      { value: "45", label: "Единиц транспорта" },
+      { value: "1–200т", label: "Диапазон заказов" },
+      { value: "24/7", label: "Режим работы" },
     ],
   },
-}
+};
 
 export function HeroSection() {
-  const [active, setActive] = useState<'bulk' | 'cargo'>('bulk')
-  const content = heroContent[active]
+  const [active, setActive] = useState<"bulk" | "cargo">("bulk");
+  const content = heroContent[active];
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0 z-0">
+      {/* Desktop background */}
+      <div className="absolute inset-0 z-0 hidden md:block">
         <Image
           src="/images/main-image.png"
           alt="AMANAT Logistic"
@@ -52,10 +54,22 @@ export function HeroSection() {
           className="object-cover object-center"
           priority
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[oklch(0.11_0.01_250)/75]" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(0.11_0.01_250)] via-[oklch(0.11_0.01_250)/60] to-transparent" />
       </div>
+
+      {/* Mobile background */}
+      <div className="absolute inset-0 z-0 md:hidden">
+        <Image
+          src="/images/main-image-mobile.JPG"
+          alt="AMANAT Logistic"
+          fill
+          className="object-cover object-center"
+          priority
+        />
+      </div>
+
+      {/* Overlay */}
+      <div className="absolute inset-0 z-0 bg-[oklch(0.11_0.01_250)/75]" />
+      <div className="absolute inset-0 z-0 bg-gradient-to-r from-[oklch(0.11_0.01_250)] via-[oklch(0.11_0.01_250)/60] to-transparent" />
 
       {/* Animated grid lines */}
       <div className="absolute inset-0 z-0 opacity-10">
@@ -63,8 +77,8 @@ export function HeroSection() {
           className="w-full h-full"
           style={{
             backgroundImage:
-              'linear-gradient(oklch(0.65_0.2_45) 1px, transparent 1px), linear-gradient(to right, oklch(0.65_0.2_45) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
+              "linear-gradient(oklch(0.65_0.2_45) 1px, transparent 1px), linear-gradient(to right, oklch(0.65_0.2_45) 1px, transparent 1px)",
+            backgroundSize: "80px 80px",
           }}
         />
       </div>
@@ -73,21 +87,21 @@ export function HeroSection() {
         {/* Service tabs */}
         <div className="flex gap-3 mb-8">
           <button
-            onClick={() => setActive('bulk')}
+            onClick={() => setActive("bulk")}
             className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 ${
-              active === 'bulk'
-                ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
-                : 'bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40'
+              active === "bulk"
+                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                : "bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40"
             }`}
           >
             Сыпучие материалы
           </button>
           <button
-            onClick={() => setActive('cargo')}
+            onClick={() => setActive("cargo")}
             className={`px-6 py-3 rounded-full font-bold text-sm transition-all duration-200 ${
-              active === 'cargo'
-                ? 'bg-primary text-primary-foreground shadow-lg shadow-primary/20'
-                : 'bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40'
+              active === "cargo"
+                ? "bg-primary text-primary-foreground shadow-lg shadow-primary/20"
+                : "bg-white/10 backdrop-blur border border-white/20 text-foreground hover:border-primary/40"
             }`}
           >
             Грузоперевозка и логистика
@@ -115,7 +129,7 @@ export function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-7xl font-black text-foreground leading-none tracking-tight mb-6 text-balance"
           >
-            {content.title[0]}{' '}
+            {content.title[0]}{" "}
             <span className="text-primary">{content.title[1]}</span>
             <br />
             {content.title[2]}
@@ -127,7 +141,7 @@ export function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-lg sm:text-xl text-foreground/70 leading-relaxed mb-10 max-w-xl"
+            className="text-lg sm:text-xl text-foreground leading-relaxed mb-10 max-w-xl"
           >
             {content.description}
           </motion.p>
@@ -148,7 +162,7 @@ export function HeroSection() {
               <ArrowRight className="w-5 h-5" />
             </Link>
             <a
-              href={`tel:${content.cta2Phone.replace(/\s+/g, '')}`}
+              href={`tel:${content.cta2Phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full border border-white/20 bg-white/5 backdrop-blur-sm text-foreground font-semibold text-base hover:border-primary/50 hover:bg-white/10 transition-all"
             >
               <Phone className="w-5 h-5 text-primary" />
@@ -166,9 +180,16 @@ export function HeroSection() {
           className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-px bg-white/10 rounded-2xl overflow-hidden border border-white/10"
         >
           {content.stats.map((stat) => (
-            <div key={stat.label} className="bg-[oklch(0.13_0.01_250)/80] backdrop-blur-sm px-6 py-5">
-              <div className="text-3xl font-black text-primary">{stat.value}</div>
-              <div className="text-sm text-foreground/60 mt-1">{stat.label}</div>
+            <div
+              key={stat.label}
+              className="bg-[oklch(0.13_0.01_250)/80] backdrop-blur-sm px-6 py-5"
+            >
+              <div className="text-3xl font-black text-primary">
+                {stat.value}
+              </div>
+              <div className="text-sm text-foreground/60 mt-1">
+                {stat.label}
+              </div>
             </div>
           ))}
         </motion.div>
@@ -188,5 +209,5 @@ export function HeroSection() {
         />
       </motion.div>
     </section>
-  )
+  );
 }

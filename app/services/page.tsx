@@ -168,6 +168,31 @@ export default function ServicesPage() {
         </div>
       </section>
 
+      <div className="relative overflow-hidden border border-border">
+        <div className="my-8 flex flex-col justify-center items-center text-center px-4 sm:px-6 lg:px-8">
+          <h3 className="text-3xl font-black text-foreground mb-4">
+            Доставка асфальтобетона на объект
+          </h3>
+
+          <p className="text-muted-foreground max-w-3xl leading-relaxed">
+            Оперативно доставляем горячий асфальтобетон на строительные и дорожные объекты.
+            Собственный транспорт позволяет соблюдать сроки и обеспечивать сохранение качества материала.
+          </p>
+        </div>
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="w-full h-[450px] object-contain"
+        >
+          <source src="/videos/video.mp4" type="video/mp4" />
+        </video>
+
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-black/10 pointer-events-none" />
+      </div>
+
       {/* Removal Services */}
       <section className="py-24 bg-[oklch(0.09_0.01_250)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

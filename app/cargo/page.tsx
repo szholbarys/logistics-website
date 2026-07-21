@@ -72,12 +72,10 @@ const advantages = [
 const partners = [
   { name: "ARMTEK", logo: "/logos/armtek.jpeg" },
   { name: "BI Group", logo: "/logos/bi-group.png" },
-  { name: "NKB Group", logo: "/logos/nkb-group.png" },
   { name: "KOMATSU", logo: "/logos/komatsu.jpg" },
   { name: "CBC", logo: "/logos/cbc.png" },
   { name: "SEVALO", logo: "/logos/sevalo.png" },
   { name: "Baikonur Machinery Group", logo: "/logos/baikonur.jpeg" },
-  { name: "Eurasian Machinery", logo: "/logos/eurasian-machinery.png" },
   { name: "Borusan CAT", logo: "/logos/borusan-cat.jpg" },
   { name: "HINO", logo: "/logos/hino.png" },
 ];

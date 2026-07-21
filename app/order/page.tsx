@@ -727,7 +727,7 @@ function OrderPageInner() {
 
   const tabs: { id: TabType; label: string }[] = [
     { id: "bulk", label: "Доставка сыпучих материалов" },
-    { id: "cargo", label: "Грузоперевозка" },
+    { id: "cargo", label: "Грузоперевозка и логистика" },
   ];
 
   return (
